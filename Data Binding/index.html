@@ -1,0 +1,15 @@
+<html ng-app="myApp">
+    <head>
+        <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js">
+        </script>
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    
+    <div ng-controller="inputBoxUpdateController">
+        <input type="text" ng-model="inputText" placeholder="Enter your name">
+        <br/>
+        <span>Your Name is: {{inputText}}</span><br/>
+        Data Binding: <span ng-bind="inputText"></span>
+    </div>
+    
+</html>
