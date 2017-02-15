@@ -1,11 +1,15 @@
-<html>
+<html ng-app='myTodoApplication'>
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<script src="js/module/app.js"></script>
+		<script src="js/controller/todoController.js"></script>
+		
 	</head>
 	
 	<body>
-		<div class="containerA">
+		<div class="containerA" ng-controller="myTodoController">
 			
 			<div class="headerDiv">
 				<img src="resources/todoLogo.png" class="img-responsive" alt="Todo Logo">
@@ -15,12 +19,12 @@
 			<div class="mainDiv">
 				<div class="inputTodoListDiv">
 					<div class="inputForm">
-						<form>
+						<form ng-submit="addNewTask()">
 							<div class="form-group">
-								<label for="newTask">Enter A New Task: </label>
-								<input type="text" class="form-control" id="newTask" placeholder="Enter a new Task" />
+								<label for="newT">Enter A New Task: </label>
+								<input type="text" class="form-control" id="newTask" placeholder="Enter a new Task" ng-model="newTask"/>
 							</div>
-							<button type="Submit" class="btn btn-info myButton">Add Task</button>
+							<button type="Submit" class="btn btn-info myButton" >Add Task</button>
 						</form>
 					</div>
 				</div>
@@ -30,39 +34,10 @@
 						<button class="btn btn-danger myButton">Completed</button>
 						<button class="btn btn-primary myButton">Active</button>
 					</div>
-					<div class="selectionDetails">
+					
+					<div class="selectionDetails" ng-repeat="t in task">
 						<input type="checkbox">
-						<p class="taskTitle">A New Task For Day 01</p>
-						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-					</div>
-					<div class="selectionDetails">
-						<input type="checkbox">
-						<p class="taskTitle">A New Task For Day 01</p>
-						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-					</div>
-					<div class="selectionDetails">
-						<input type="checkbox">
-						<p class="taskTitle">A New Task For Day 01</p>
-						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-					</div>
-					<div class="selectionDetails">
-						<input type="checkbox">
-						<p class="taskTitle">A New Task For Day 01</p>
-						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-					</div>
-					<div class="selectionDetails">
-						<input type="checkbox">
-						<p class="taskTitle">A New Task For Day 01</p>
-						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-					</div>
-					<div class="selectionDetails">
-						<input type="checkbox">
-						<p class="taskTitle">A New Task For Day 01</p>
-						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-					</div>
-					<div class="selectionDetails">
-						<input type="checkbox">
-						<p class="taskTitle">A New Task For Day 01</p>
+						<p class="taskTitle">{{t}}</p>
 						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
 					</div>
 				</div>
