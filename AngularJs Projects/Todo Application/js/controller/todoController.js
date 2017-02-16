@@ -1,12 +1,28 @@
-myTodoApp.controller('myTodoController', ['$scope', function($scope){
-	$scope.task = ["A New Task 01","A New Task 02","A New Task 03"]; 
+myTodoApp.controller('myTodoController', ['$scope','todoService', function($scope, todoService){
+	$scope.task = todoService.todoList; 
 	
 	$scope.newTask = ""; 
 	
 	$scope.addNewTask = function(){
 		if($scope.newTask != ""){
-			$scope.task.push($scope.newTask); 
+			todoService.todoList.push({title: $scope.newTask, done: false}); 
 			$scope.newTask = ""; 
 		}
+	}
+	
+	$scope.getAllTask = function(){
+		$scope.task = todoService.allList(); 
+	}
+	
+	$scope.getCompletedTask = function(){
+		$scope.task = todoService.completedList();
+	}
+	
+	$scope.getActiveTask = function(){
+		$scope.task = todoService.activeList();
+	}
+	
+	$scope.updateList = function(task){
+		todoService.updateList(task); 
 	}
 }]); 

@@ -108,3 +108,7 @@ body{
 	float: right;
 	color: aliceblue;
 }
+
+.selectionDetails > input:checked + .taskTitle{
+	text-decoration: line-through; 
+} 

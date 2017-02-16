@@ -5,6 +5,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 		<script src="js/module/app.js"></script>
 		<script src="js/controller/todoController.js"></script>
+		<script src="js/services/taskService.js"></script>
 		
 	</head>
 	
@@ -30,14 +31,14 @@
 				</div>
 				<div class="showTodoListDiv">
 					<div class="selection">
-						<button class="btn btn-success myButton">All Task</button>
-						<button class="btn btn-danger myButton">Completed</button>
-						<button class="btn btn-primary myButton">Active</button>
+						<button class="btn btn-success myButton" ng-click="getAllTask()">All Task</button>
+						<button class="btn btn-danger myButton" ng-click="getCompletedTask()">Completed</button>
+						<button class="btn btn-primary myButton" ng-click="getActiveTask()">Active</button>
 					</div>
 					
 					<div class="selectionDetails" ng-repeat="t in task">
-						<input type="checkbox">
-						<p class="taskTitle">{{t}}</p>
+						<input type="checkbox" ng-checked="{{t.done}}" ng-click="updateList(t)">
+						<p class="taskTitle">{{t.title}}</p>
 						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
 					</div>
 				</div>
