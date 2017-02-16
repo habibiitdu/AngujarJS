@@ -1,4 +1,11 @@
 myTodoApp.controller('myTodoController', ['$scope','todoService', function($scope, todoService){
+	
+	
+	/*$scope.saved = localStorage.getItem('todos');
+	$scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [ {text: 'Learn AngularJS', done: false}, {text: 'Build an Angular app', done: false} ];
+	localStorage.setItem('todos', JSON.stringify($scope.todos));*/
+	
+	
 	$scope.task = todoService.todoList; 
 	$scope.showSetting = false; 
 	$scope.edit = false;
@@ -8,7 +15,8 @@ myTodoApp.controller('myTodoController', ['$scope','todoService', function($scop
 	
 	$scope.addNewTask = function(){
 		if($scope.newTask != ""){
-			todoService.todoList.push({title: $scope.newTask, done: false}); 
+			var newTask = {title: $scope.newTask, done: false}; 
+			todoService.addNewTask(newTask); 
 			$scope.newTask = ""; 
 		}
 	}
@@ -29,7 +37,7 @@ myTodoApp.controller('myTodoController', ['$scope','todoService', function($scop
 	}
 	
 	$scope.saveEdit = function(){
-		$scope.editingTask.title = $scope.newTask;
+		todoService.editTask($scope.editingTask, $scope.newTask);
 		$scope.newTask = "";
 		$scope.editingTask={}; 
 		$scope.edit = false;
