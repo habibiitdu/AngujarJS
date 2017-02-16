@@ -1,6 +1,8 @@
 myTodoApp.controller('myTodoController', ['$scope','todoService', function($scope, todoService){
 	$scope.task = todoService.todoList; 
 	$scope.showSetting = false; 
+	$scope.edit = false;
+	$scope.editingTask = {}; 
 	
 	$scope.newTask = ""; 
 	
@@ -21,11 +23,23 @@ myTodoApp.controller('myTodoController', ['$scope','todoService', function($scop
 	}
 	
 	$scope.editTask = function(task){
-		
+		$scope.edit = true;
+		$scope.newTask = task.title;
+		$scope.editingTask = task;
+	}
+	
+	$scope.saveEdit = function(){
+		$scope.editingTask.title = $scope.newTask;
+		$scope.newTask = "";
+		$scope.editingTask={}; 
+		$scope.edit = false;
 	}
 	
 	$scope.deleteTask = function(task){
 		todoService.deleteTask(task); 
+		$scope.newTask = "";
+		$scope.editingTask={}; 
+		$scope.edit = false;
 	}
 	
 	$scope.getAllTask = function(){

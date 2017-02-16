@@ -25,7 +25,8 @@
 								<label for="newT">Enter A New Task: </label>
 								<input type="text" class="form-control" id="newTask" placeholder="Enter a new Task" ng-model="newTask"/>
 							</div>
-							<button type="Submit" class="btn btn-info myButton" >Add Task</button>
+							<button type="Submit" class="btn btn-info myButton" ng-hide="edit">Add Task</button>
+							<input type="button" value="Save" class="btn btn-info myButton" ng-show="edit" ng-click="saveEdit()">
 						</form>
 					</div>
 				</div>
@@ -38,7 +39,7 @@
 					
 					<div class="selectionDetails" ng-repeat="t in task">
 						<input type="checkbox" ng-checked="{{t.done}}" ng-click="updateList(t)">
-						<p class="taskTitle">{{t.title}}</p>
+						<div class="taskTitle"><p>{{t.title}}</p></div>
 						<span class="glyphicon glyphicon-tasks" ng-click="showSettings()"
 							  aria-hidden="true"></span>
 						<div class="taskSettings">

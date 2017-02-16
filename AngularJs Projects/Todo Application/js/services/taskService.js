@@ -36,7 +36,6 @@ myTodoApp.factory('todoService', [function(){
 				}else{
 					value.done = true;
 				}
-				
 			}
 		});
 	}

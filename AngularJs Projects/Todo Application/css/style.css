@@ -78,15 +78,19 @@ body{
 }
 
 .selectionDetails{
-	padding-top: 15px;
+	width: 90%;
 	border-bottom: 2px dashed aqua;
-	margin-right: 90px;
+	clear: both;
+	height: 50px;
+	margin-top: 10px;
 }
+
 
 .selectionDetails > input {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
+	float: left;
 }
 
 .myButton{
@@ -98,15 +102,16 @@ body{
 
 .taskTitle{
 	color: aqua;
-	display: inline;
+	display: block;
 	font-size: 25px;
-	padding-left: 10px;
-	width: 50%;
+	width: 85%;
+	float: left;
 }
 
 .selectionDetails > span{
 	float: right;
 	color: aliceblue;
+	cursor: pointer;
 }
 
 .selectionDetails > input:checked + .taskTitle{
@@ -114,13 +119,16 @@ body{
 } 
 
 .taskSettings{
-	position: fixed;
-	display: inline;
+	position: absolute;
 	float: right;
-	margin-left: 245px;
+	display: inline;
 	height: 25px;
 	width: 50px;
 	background-color:white; 
 	padding-left: 10px;
 	padding-top: 3px;
+}
+
+.taskSettings span{
+	cursor: pointer;
 }
