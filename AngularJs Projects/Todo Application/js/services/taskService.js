@@ -36,8 +36,14 @@ myTodoApp.factory('todoService', [function(){
 				}else{
 					value.done = true;
 				}
+				
 			}
 		});
+	}
+	
+	todo.deleteTask = function(task){
+		var index = todo.todoList.indexOf(task);
+		todo.todoList.splice(index,1); 
 	}
 	
 	return todo; 

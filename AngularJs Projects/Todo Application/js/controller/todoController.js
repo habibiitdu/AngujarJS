@@ -1,5 +1,6 @@
 myTodoApp.controller('myTodoController', ['$scope','todoService', function($scope, todoService){
 	$scope.task = todoService.todoList; 
+	$scope.showSetting = false; 
 	
 	$scope.newTask = ""; 
 	
@@ -8,6 +9,23 @@ myTodoApp.controller('myTodoController', ['$scope','todoService', function($scop
 			todoService.todoList.push({title: $scope.newTask, done: false}); 
 			$scope.newTask = ""; 
 		}
+	}
+	
+	$scope.showSettings = function(){
+		if($scope.showSetting){
+			$scope.showSetting = false;
+		}else{
+			$scope.showSetting = true;
+		}
+		
+	}
+	
+	$scope.editTask = function(task){
+		
+	}
+	
+	$scope.deleteTask = function(task){
+		todoService.deleteTask(task); 
 	}
 	
 	$scope.getAllTask = function(){

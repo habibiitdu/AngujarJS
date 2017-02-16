@@ -39,7 +39,12 @@
 					<div class="selectionDetails" ng-repeat="t in task">
 						<input type="checkbox" ng-checked="{{t.done}}" ng-click="updateList(t)">
 						<p class="taskTitle">{{t.title}}</p>
-						<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+						<span class="glyphicon glyphicon-tasks" ng-click="showSettings()"
+							  aria-hidden="true"></span>
+						<div class="taskSettings">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true" ng-click="editTask(t)"></span>
+							<span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteTask(t)"></span>
+						</div>
 					</div>
 				</div>
 			</div>

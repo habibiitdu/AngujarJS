@@ -112,3 +112,15 @@ body{
 .selectionDetails > input:checked + .taskTitle{
 	text-decoration: line-through; 
 } 
+
+.taskSettings{
+	position: fixed;
+	display: inline;
+	float: right;
+	margin-left: 245px;
+	height: 25px;
+	width: 50px;
+	background-color:white; 
+	padding-left: 10px;
+	padding-top: 3px;
+}
