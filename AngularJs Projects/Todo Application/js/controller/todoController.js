@@ -1,15 +1,13 @@
 myTodoApp.controller('myTodoController', ['$scope','todoService', function($scope, todoService){
-	
-	
-	/*$scope.saved = localStorage.getItem('todos');
-	$scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [ {text: 'Learn AngularJS', done: false}, {text: 'Build an Angular app', done: false} ];
-	localStorage.setItem('todos', JSON.stringify($scope.todos));*/
-	
-	
+
 	$scope.task = todoService.todoList; 
 	$scope.showSetting = false; 
 	$scope.edit = false;
-	$scope.editingTask = {}; 
+	$scope.editingTask = {};
+	$scope.newTaskHeader = "Enter A New Task"; 
+	$scope.ediTaskHeader = "Edit Task"; 
+	$scope.taskHeader = $scope.newTaskHeader;
+	
 	
 	$scope.newTask = ""; 
 	
@@ -34,6 +32,7 @@ myTodoApp.controller('myTodoController', ['$scope','todoService', function($scop
 		$scope.edit = true;
 		$scope.newTask = task.title;
 		$scope.editingTask = task;
+		$scope.taskHeader = $scope.ediTaskHeader; 
 	}
 	
 	$scope.saveEdit = function(){
@@ -41,6 +40,7 @@ myTodoApp.controller('myTodoController', ['$scope','todoService', function($scop
 		$scope.newTask = "";
 		$scope.editingTask={}; 
 		$scope.edit = false;
+		$scope.taskHeader = $scope.newTaskHeader;
 	}
 	
 	$scope.deleteTask = function(task){

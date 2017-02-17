@@ -22,7 +22,7 @@
 					<div class="inputForm">
 						<form ng-submit="addNewTask()">
 							<div class="form-group">
-								<label for="newT">Enter A New Task: </label>
+								<label for="newT">{{taskHeader}}</label>
 								<input type="text" class="form-control" id="newTask" placeholder="Enter a new Task" ng-model="newTask"/>
 							</div>
 							<button type="Submit" class="btn btn-info myButton" ng-hide="edit">Add Task</button>
@@ -40,8 +40,8 @@
 					<div class="selectionDetails" ng-repeat="t in task">
 						<input type="checkbox" ng-checked="{{t.done}}" ng-click="updateList(t)">
 						<div class="taskTitle"><p>{{t.title}}</p></div>
-						<span class="glyphicon glyphicon-tasks" ng-click="showSettings()"
-							  aria-hidden="true"></span>
+						<!--<span class="glyphicon glyphicon-tasks" ng-click="showSettings()"
+							  aria-hidden="true"></span>-->
 						<div class="taskSettings">
 							<span class="glyphicon glyphicon-edit" aria-hidden="true" ng-click="editTask(t)"></span>
 							<span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteTask(t)"></span>
