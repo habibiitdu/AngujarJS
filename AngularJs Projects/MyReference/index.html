@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='myRefApp'>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,13 @@
 	  
 	 
     <title>My References</title>
-
+	 <!--Necessary Scripts--> 
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	  <script src="js/module/app.js"></script>
+	  <script src="js/controller/contentController.js"></script>
+	 <!-- <script src="js/service/contentService.js"></script>-->
+	  
+	  
     <!-- Bootstrap -->
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/style.css">
@@ -35,8 +41,8 @@
 					</ul>
 				</div>
 			</div>
-			<div class="contents">
-				<div class="ref-list">
+			<div class="contents" ng-controller="referenceController">
+			<div class="ref-list" ng-show="allrefList">
 					<h1>Top Rated Reference List</h1>
 					
 					<table class="table">
@@ -52,177 +58,48 @@
 							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
 						</tr>
 						
-							<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
-						</tr>
-						<tr>
-							<th><span class="serial">01</span></th>
-							<th><span class="text">This is the Book; in it is guidance sure, without doubt, to those who fear Allah.</span></th>
-							<th><span class="source">Al Quran (2:2)</span></th>
-							<th><span class="date">21st February</span></th>
-							<th><span class="rating">100000</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details"><a href="#">Details</a></span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
+						<tr ng-repeat="ref in allRef">
+							<td><span class="serial">Serial</span></td>
+							<td><span class="text">{{ref.refText}}</span></td>
+							<td><span class="source"><a href="{{ref.refLink}}">{{ref.refSource}}</a></span></td>
+							<td><span class="date">{{22.02.2017}}</span></td>
+							<td><span class="rating">0</span></td>
+							<td><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></td>
+							<td><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></td>
+							<td><span class="details"><a href="#">Details</a></span></td>
+							<td><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></td>
 						</tr>
 					</table>
-					
+				</div>
+				
+				<div class="new-ref-form" ng-show="addNew">
+					<h1>Add A New Reference</h1>
+					<form ng-submit="saveNewReference()">
+						  <div class="form-group">
+							<label for="text">Text</label>
+							<input type="text" ng-model="refText" class="form-control" id="new-ref-text" placeholder="Enter Your Reference Text">
+						  </div>
+						<div class="form-group">
+							<label for="source">Source</label>
+							<input type="text" ng-model="refSource" class="form-control" id="new-ref-source" placeholder="Enter Your Reference Source">
+						  </div>
+						
+						<div class="form-group">
+							<label for="sourceLink">Source Link</label>
+							<input type="text" ng-model="refLink" class="form-control" id="new-ref-source-link" placeholder="Reference Link">
+						  </div>
+						
+						<div class="form-group">
+							<label for="sourceLink">Enter Tags</label>
+							<input type="text" ng-model="tag" class="form-control" id="new-ref-source-tags" placeholder="Enter Tag (For multiple use comma(,))">
+						  </div>
+						  
+						  <button type="submit" class="btn btn-primary">Add New Source</button>
+						  <input type="button" value="Cancel" class="btn btn-danger" ng-click="cancelNewReference()">
+					</form>
 				</div>
 				<div class="add-new-ref">
-					<div class="add-new">
+					<div class="add-new" ng-click="addNewRef()">
 						<img src="/resources/add.png">
 					</div>
 					<div class="ref-tags">

@@ -70,7 +70,7 @@ body{
 	padding-left: 20px;
 }
 
-.ref-list{
+.ref-list, .new-ref-form{
 	width: 70%;
 	height: 100%;
 	float: left;
@@ -92,6 +92,7 @@ body{
 	display: block;
 	margin: auto;
 	margin-top: 50px;
+	cursor: pointer;
 }
 
 .ref-tags{
