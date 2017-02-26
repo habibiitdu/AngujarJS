@@ -18,10 +18,22 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
 	}
 }
+
 .container-fluid{
 	padding-left: 100px;
 	padding-right: 100px;
 }
+
+.form-inline{
+	display: inline;
+}
+
+#newRefAddImg{
+	margin: 0 auto;
+	cursor: pointer;
+	padding-top: 50px;
+}
+
 
 .header-image{
 	width: 100%;
@@ -96,7 +108,7 @@ body{
 	display: block;
 	margin: auto;
 	margin-top: 50px;
-	cursor: pointer;
+
 }
 
 .ref-tags{

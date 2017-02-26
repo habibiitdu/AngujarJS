@@ -17,7 +17,9 @@
 	  
     <!-- Bootstrap -->
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="/css/style.css">
+	  <link rel="stylesheet" href="css/form_extra.css"></link>
 
   </head>
   <body>
@@ -48,15 +50,13 @@
 					<li><a href="#">Signout</a></li>
 				</ul>
 			</div>
-			
-
 		</div>
 	</nav>
-	  
-	  
-   		<div class="container-main">
-			<div class="contents" ng-controller="referenceController">
-			<div class="ref-list" ng-show="allrefList">
+	
+	<div class="container-fluid" ng-controller="referenceController">
+		<div class="row">
+			<div class="col-md-8">
+				<div ng-show="allrefList">
 					<h1>Top Rated Reference List</h1>
 					
 					<table class="table">
@@ -85,8 +85,9 @@
 						</tr>
 					</table>
 				</div>
-				
-				<div class="new-ref-form" ng-show="addNew">
+			</div>
+			
+			<div ng-show="addNew" class="col-md-8">
 					<h1>Add A New Reference</h1>
 					<form ng-submit="saveNewReference()">
 						  <div class="form-group">
@@ -112,8 +113,8 @@
 						  <input type="button" value="Cancel" class="btn btn-danger" ng-click="cancelNewReference()">
 					</form>
 				</div>
-				
-				<div class="show-tag-details" ng-show="refDetails">
+			
+			<div ng-show="refDetails" class="col-md-8">
 					<h1>Reference Details: </h1>
 					<table class="table">
 						<tr>
@@ -139,18 +140,21 @@
 					</table>
 					<input type="button" class="btn btn-danger" ng-click="cancelShowDetail()" value="Cancel"/>
 				</div>
-				<div class="add-new-ref">
-					<div class="add-new" >
-						<img  ng-click="addNewRef()" src="/resources/add.png">
-					</div>
-					<div class="ref-tags">
-						<div class="tag" ng-repeat="tag in allTags">{{tag}}</div>												
-					</div>
+			
+			
+			
+			<div class="col-md-4">
+				<div class="row">
+					<img class="img-responsive" id="newRefAddImg" ng-click="addNewRef()" src="/resources/add_red.png">
+				</div>
+				<div class="row">
+					<div class="tag" ng-repeat="tag in allTags">{{tag}}</div>
 				</div>
 			</div>
-			<div class="sub-content">
-				<div class="top-contributor-list">
-					<h1>Top Contributor List</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Top Contributor List</h1>
 					<table class="table">
 						<tr>
 							<th>Rank</th>
@@ -193,21 +197,52 @@
 							<td><span>840</span></td>
 						</tr>
 					</table>
-				</div>
+			</div>
+			<div class="col-md-4">
 				
-				<div class="social-plugin-list">
-				
+    		<form>
+			<div id="contact-form" class="form-container" data-form-container style="color: rgb(46, 125, 50); background: rgb(200, 230, 201);">
+			<div class="row">
+				<div class="form-title">
+					<span>Contact Us </span>
 				</div>
 			</div>
-			<div class="footer-content">
-				<div class="copyright">Copyright @ M H Rahman Production 2017</div>
-				<div class="social-media-link">
-					<span><a href="">Facebook Icon</a></span>
-					<span><a href="">LinkedIn Icon</a></span>
-					<span><a href="">Twitter Icon</a></span>
+			<div class="input-container">
+				<div class="row">
+					<span class="req-input valid" >
+						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Input your post title."> </span>
+						<input type="text" data-min-length="8" placeholder="Post Title" value="Enter Your Name">
+					</span>
+				</div>
+			
+				<div class="row">
+					<span class="req-input message-box valid">
+						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Post Contents."> </span>
+						<textarea type="textarea" data-min-length="10" placeholder="Post Contents">Enter your message </textarea>
+				</div>
+				<div class="row submit-row">
+					<button type="button" class="btn btn-block submit-form valid">Submit</button>
 				</div>
 			</div>
-	  </div>
+			</div>
+			</form>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="navbar navbar-inverse navbar-fixed-bottom">
+		<div class="container">
+			<div class="navbar-text pull-left">
+				Copyright @ M H Rahman Production 2017
+			</div>
+		
+			<div class="navbar-text pull-right">
+				<a href="#"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+				  <a href="#"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+				  <a href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a>			
+			</div>
+		</div>
+	</div>
 	  
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <script src="js/bootstrap.min.js"></script>
