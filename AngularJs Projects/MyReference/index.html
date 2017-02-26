@@ -12,35 +12,49 @@
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	  <script src="js/module/app.js"></script>
 	  <script src="js/controller/contentController.js"></script>
-	 <!-- <script src="js/service/contentService.js"></script>-->
+	  <script src="js/service/contentService.js"></script>
 	  
 	  
     <!-- Bootstrap -->
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/style.css">
 
   </head>
   <body>
+	  <div class="container-fluid">
+		  <div class="row">
+			  <img class="img-responsive" src="resources/headerImage.jpg" alt="Site Header Image"></img>
+		  </div>
+	  </div>
+	<nav class="navbar navbar-inverse bg-inverse navbar-static-top">
+		<div class="container-fluid">	
+			<button type="button" class="navbar-toggle"
+					data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-left">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">My Account</a></li>
+					<li><a href="#">username</a></li>
+					<li><a href="#">Signout</a></li>
+				</ul>
+			</div>
+			
+
+		</div>
+	</nav>
+	  
+	  
    		<div class="container-main">
-			<div class="header-image">
-				<img src="resources/headerImage.jpg" />
-			</div>
-			<div class="navigation-bar">
-				<div class="nav-items">
-					<ul class="list-unstyled">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Contact Us</a></li>
-					</ul>
-				</div>
-				<div class="user-credentials">
-					<ul class="list-unstyled">
-						<li><a href="#">My Account</a></li>
-						<li><a href="#">username</a></li>
-						<li><a href="#">Sign out</a></li>
-					</ul>
-				</div>
-			</div>
 			<div class="contents" ng-controller="referenceController">
 			<div class="ref-list" ng-show="allrefList">
 					<h1>Top Rated Reference List</h1>
@@ -52,21 +66,21 @@
 							<th><span class="source">Source</span></th>
 							<th><span class="date">Date</span></th>
 							<th><span class="rating">Rating</span></th>
-							<th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></th>
-							<th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></th>
-							<th><span class="details">Details</span></th>
-							<th><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></th>
+							<th><span class="glyphicon glyphicon glyphicon-thumbs-up" aria-hidden="true" class="add"></span></th>
+							<th><span class="glyphicon glyphicon glyphicon-thumbs-down" aria-hidden="true" class="add"></span></th>
+							<th><span>Details</span></th>
+							<th><span>Get it</span></th>
 						</tr>
 						
-						<tr ng-repeat="ref in allRef">
+						<tr ng-repeat="ref in allRef track by $index">
 							<td><span class="serial">Serial</span></td>
 							<td><span class="text">{{ref.refText}}</span></td>
 							<td><span class="source"><a href="{{ref.refLink}}">{{ref.refSource}}</a></span></td>
-							<td><span class="date">{{22.02.2017}}</span></td>
+							<td><span class="date">{{ref.date}}</span></td>
 							<td><span class="rating">0</span></td>
-							<td><span class="glyphicon glyphicon-triangle-top" aria-hidden="true" class="add"></span></td>
-							<td><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" class="add"></span></td>
-							<td><span class="details"><a href="#">Details</a></span></td>
+							<td><span class="glyphicon glyphicon glyphicon-thumbs-up" aria-hidden="true" class="add"></span></td>
+							<td><span class="glyphicon glyphicon glyphicon-thumbs-down" aria-hidden="true" class="add"></span></td>
+							<td><span class="details" ng-click="showTagDetails(ref)">Details</span></td>
 							<td><span class="glyphicon glyphicon-plus" aria-hidden="true" class="add"></span></td>
 						</tr>
 					</table>
@@ -98,53 +112,39 @@
 						  <input type="button" value="Cancel" class="btn btn-danger" ng-click="cancelNewReference()">
 					</form>
 				</div>
+				
+				<div class="show-tag-details" ng-show="refDetails">
+					<h1>Reference Details: </h1>
+					<table class="table">
+						<tr>
+							<th>Text</th>
+							<td>{{showingRef.refText}}</td>
+						</tr>
+							<tr>
+							<th>Source</th>
+							<td>{{showingRef.refSource}}</td>
+						</tr>
+							<tr>
+							<th>Source Link</th>
+							<td><a href="{{showingRef.refLink}}">{{showingRef.refSource}}</a></td>
+						</tr>
+							<tr>
+							<th>Rating</th>
+							<td>{{showingRef.rating}}</td>
+						</tr>
+							<tr>
+							<th>Date</th>
+							<td>{{showingRef.date}}</td>
+						</tr>
+					</table>
+					<input type="button" class="btn btn-danger" ng-click="cancelShowDetail()" value="Cancel"/>
+				</div>
 				<div class="add-new-ref">
-					<div class="add-new" ng-click="addNewRef()">
-						<img src="/resources/add.png">
+					<div class="add-new" >
+						<img  ng-click="addNewRef()" src="/resources/add.png">
 					</div>
 					<div class="ref-tags">
-						<div class="tag"><a href="#">Hello</a></div>
-						<div class="tag"><a href="#">Bangladesh</a></div>
-						<div class="tag"><a href="#">Nationalism</a></div>
-						<div class="tag"><a href="#">Islam</a></div>
-						<div class="tag"><a href="#">Politics</a></div>
-						<div class="tag"><a href="#">Dhaka University</a></div>
-						<div class="tag"><a href="#">Indonesia</a></div>
-						<div class="tag"><a href="#">Hello</a></div>
-						<div class="tag"><a href="#">Bangladesh</a></div>
-						<div class="tag"><a href="#">Nationalism</a></div>
-						<div class="tag"><a href="#">Islam</a></div>
-						<div class="tag"><a href="#">Politics</a></div>
-						<div class="tag"><a href="#">Dhaka University</a></div>
-						<div class="tag"><a href="#">Indonesia</a></div>
-						<div class="tag"><a href="#">Hello</a></div>
-						<div class="tag"><a href="#">Bangladesh</a></div>
-						<div class="tag"><a href="#">Nationalism</a></div>
-						<div class="tag"><a href="#">Islam</a></div>
-						<div class="tag"><a href="#">Politics</a></div>
-						<div class="tag"><a href="#">Dhaka University</a></div>
-						<div class="tag"><a href="#">Indonesia</a></div>
-						<div class="tag"><a href="#">Hello</a></div>
-						<div class="tag"><a href="#">Bangladesh</a></div>
-						<div class="tag"><a href="#">Nationalism</a></div>
-						<div class="tag"><a href="#">Islam</a></div>
-						<div class="tag"><a href="#">Politics</a></div>
-						<div class="tag"><a href="#">Dhaka University</a></div>
-						<div class="tag"><a href="#">Indonesia</a></div>
-						<div class="tag"><a href="#">Hello</a></div>
-						<div class="tag"><a href="#">Bangladesh</a></div>
-						<div class="tag"><a href="#">Nationalism</a></div>
-						<div class="tag"><a href="#">Islam</a></div>
-						<div class="tag"><a href="#">Politics</a></div>
-						<div class="tag"><a href="#">Dhaka University</a></div>
-						<div class="tag"><a href="#">Indonesia</a></div>
-						<div class="tag"><a href="#">Hello</a></div>
-						<div class="tag"><a href="#">Bangladesh</a></div>
-						<div class="tag"><a href="#">Nationalism</a></div>
-						<div class="tag"><a href="#">Islam</a></div>
-						<div class="tag"><a href="#">Politics</a></div>
-						<div class="tag"><a href="#">Dhaka University</a></div>
-												
+						<div class="tag" ng-repeat="tag in allTags">{{tag}}</div>												
 					</div>
 				</div>
 			</div>
@@ -208,5 +208,9 @@
 				</div>
 			</div>
 	  </div>
+	  
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	  <script src="js/bootstrap.min.js"></script>
+	  
   </body>
 </html>

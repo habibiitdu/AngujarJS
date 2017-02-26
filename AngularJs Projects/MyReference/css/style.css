@@ -18,10 +18,14 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
 	}
 }
+.container-fluid{
+	padding-left: 100px;
+	padding-right: 100px;
+}
 
 .header-image{
 	width: 100%;
-	height: 15%;
+	height: 200px;
 }
 
 .header-image > img{
@@ -70,7 +74,7 @@ body{
 	padding-left: 20px;
 }
 
-.ref-list, .new-ref-form{
+.ref-list, .new-ref-form, .show-tag-details{
 	width: 70%;
 	height: 100%;
 	float: left;
@@ -106,6 +110,17 @@ body{
 	border-radius: 5px;
 	margin: 5px 5px;
 	float: left;
+	cursor: pointer;
+}
+
+.details{
+	display: inline;
+	padding: 3px 5px;
+	background-color: #87CEEB;
+	border-radius: 5px;
+	margin: 5px 5px;
+	float: left;
+	cursor: pointer;
 }
 
 .sub-content{
